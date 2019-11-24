@@ -31,13 +31,22 @@ namespace MediaWatcher
             myFrame.Navigate(typeof(HomePage));
             #region StartBatterySetup
             var batteryReport = Battery.AggregateBattery.GetReport();
-            var percentage = Math.Round((batteryReport.RemainingCapacityInMilliwattHours.Value /
+            switch (batteryReport.Status)
+            {
+                case BatteryStatus.NotPresent:
+                    batteryStatus_text.Text = "PC";
+                    batteryStatus_icon.Text = "\uEBB5";
+                    break;
+                default:
+                    var percentage = Math.Round((batteryReport.RemainingCapacityInMilliwattHours.Value /
                              (double)batteryReport.FullChargeCapacityInMilliwattHours.Value) * 100);
-            batteryStatus_text.Text = percentage.ToString() + "%";
-            if (percentage < 40.0) batteryStatus_icon.Text = "\uE851";
-            else if (percentage >= 40.0 && percentage < 70.0) batteryStatus_icon.Text = "\uE855";
-            else batteryStatus_icon.Text = "\uE83F";
-            Battery.AggregateBattery.ReportUpdated += BatteryReportUpdated;
+                    batteryStatus_text.Text = percentage.ToString() + "%";
+                    if (percentage < 40.0) batteryStatus_icon.Text = "\uE851";
+                    else if (percentage >= 40.0 && percentage < 70.0) batteryStatus_icon.Text = "\uE855";
+                    else batteryStatus_icon.Text = "\uE83F";
+                    Battery.AggregateBattery.ReportUpdated += BatteryReportUpdated;
+                    break;
+            }
             #endregion
 
             ApplicationView.GetForCurrentView().TryEnterFullScreenMode();

@@ -91,8 +91,8 @@
                     <Frame Name="myFrame" />
                 </SplitView.Content>
             </SplitView>
-            <TextBlock Name="batteryStatus_icon" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="20" FontFamily="Segoe MDL2 Assets" Margin="0 0 35 0"/>
-            <TextBlock Name="batteryStatus_text" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="White" FontSize="15"/>
+            <TextBlock Name="batteryStatus_icon" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="20" FontFamily="Segoe MDL2 Assets" Margin="0 0 37 0"/>
+            <TextBlock Name="batteryStatus_text" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="White" FontSize="15" Margin="0 0 2 0"/>
         </Grid>
     </Grid>
 </Page>
