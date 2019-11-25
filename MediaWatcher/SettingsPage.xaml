@@ -10,5 +10,36 @@
 
     <Grid>
         <Image Source="Assets/settings.jpg" Stretch="Fill"/>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Border HorizontalAlignment="Stretch" 
+                        VerticalAlignment="Stretch"
+                        Margin="20 20 10 20" 
+                        BorderThickness="2"
+                        BorderBrush="BlueViolet"
+                        CornerRadius="5">
+                    
+                </Border>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Border HorizontalAlignment="Stretch" 
+                        VerticalAlignment="Stretch"
+                        Margin="10 20 20 20" 
+                        BorderThickness="2"
+                        BorderBrush="AliceBlue"
+                        CornerRadius="5">
+
+                </Border>
+            </Grid>
+        </Grid>
+
+        
     </Grid>
 </Page>
