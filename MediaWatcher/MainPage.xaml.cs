@@ -31,26 +31,7 @@ namespace MediaWatcher
             myFrame.Navigate(typeof(HomePage));
 
             #region StartBatterySetup
-            var batteryReport = Battery.AggregateBattery.GetReport();
-            switch (batteryReport.Status)
-            {
-                case BatteryStatus.NotPresent:
-                    batteryStatus_text.Text = "PC";
-                    batteryStatus_icon.Text = "\uEBB5";
-                    break;
-                default:
-                    var percentage = Math.Round((batteryReport.RemainingCapacityInMilliwattHours.Value /
-                             (double)batteryReport.FullChargeCapacityInMilliwattHours.Value) * 100);
-                    batteryStatus_text.Text = percentage.ToString() + "%";
-                    if (percentage < 40.0) 
-                        batteryStatus_icon.Text = "\uE851";
-                    else if (percentage >= 40.0 && percentage < 70.0) 
-                        batteryStatus_icon.Text = "\uE855";
-                    else 
-                        batteryStatus_icon.Text = "\uE83F";
-                    break;
-            }
-            
+            BatteryReportUpdated(Battery.AggregateBattery, null);
             Battery.AggregateBattery.ReportUpdated += BatteryReportUpdated;
             #endregion
 
@@ -88,7 +69,7 @@ namespace MediaWatcher
             }
             if (settingsPage.IsSelected)
             {
-                //myFrame.Navigate(typeof(LabPage4));
+                myFrame.Navigate(typeof(SettingsPage));
                 textHeader.Text = "Settings";
             }
         }
@@ -109,14 +90,20 @@ namespace MediaWatcher
                 switch (batteryReport.Status)
                 {
                     case BatteryStatus.Discharging:
-                        if (percentage < 40.0) batteryStatus_icon.Text = "\uE851";
-                        else if (percentage >= 40.0 && percentage < 70.0) batteryStatus_icon.Text = "\uE855";
-                        else batteryStatus_icon.Text = "\uE83F";
+                        if (percentage < 40.0) 
+                            batteryStatus_icon.Text = "\uE851";
+                        else if (percentage >= 40.0 && percentage < 70.0) 
+                            batteryStatus_icon.Text = "\uE855";
+                        else 
+                            batteryStatus_icon.Text = "\uE83F";
                         break;
                     case BatteryStatus.Charging:
-                        if (percentage < 40.0) batteryStatus_icon.Text = "\uE85B";
-                        else if (percentage >= 40.0 && percentage < 70.0) batteryStatus_icon.Text = "\uE860";
-                        else batteryStatus_icon.Text = "\uEBB5";
+                        if (percentage < 40.0) 
+                            batteryStatus_icon.Text = "\uE85B";
+                        else if (percentage >= 40.0 && percentage < 70.0) 
+                            batteryStatus_icon.Text = "\uE860";
+                        else 
+                            batteryStatus_icon.Text = "\uEBB5";
                         break;
                     case BatteryStatus.NotPresent:
                         batteryStatus_text.Text = "PC";

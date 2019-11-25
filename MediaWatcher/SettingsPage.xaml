@@ -9,6 +9,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <Image Source="Assets/settings.jpg" Stretch="Fill"/>
     </Grid>
 </Page>

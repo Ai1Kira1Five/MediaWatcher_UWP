@@ -10,7 +10,15 @@
 
     <Grid>
         <Image Source="Assets/gorod.jpg" Stretch="Fill"/>
-        
-        
+
+        <!--<GridView 
+            x:Name="VideoGridView"
+            ItemTemplate="{StaticResource VideoTemplate}"/>-->
     </Grid>
+    <Page.Resources>
+        <!--<DataTemplate x:Key="VideoTemplate" x:DataType="local:VideoDataObject">
+            <Image Stretch="UniformToFill" Width="190" Height="130"/>
+
+        </DataTemplate>-->
+    </Page.Resources>
 </Page>
